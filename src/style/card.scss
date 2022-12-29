@@ -1,0 +1,35 @@
+@import './var.scss';
+.cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 0 auto;
+    .card {
+        display: flex;
+        align-items: center;
+        justify-self: center;
+
+  
+      img {
+        width: 60px;
+        margin-right: $md;
+      }
+    }
+  }
+
+  @media screen and (max-width: 899px) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 1rem;
+        align-items: center;
+      }
+  }
+  @media screen and (max-width: 535px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+  }
+  @media screen and (max-width: 355px) {
+    .cards {
+        grid-template-columns: 1fr;
+      }
+  }

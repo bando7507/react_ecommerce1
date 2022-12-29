@@ -23,6 +23,7 @@ export const navlist = [
     path: "/contact",
   },
 ]
+
 export const hero = [
   {
     id: 1,
@@ -113,7 +114,7 @@ export const products = [
   {
     id: 7,
     cover: "../images/product/7-1-1.jpg",
-    title: "Floating 2021 iPhone 12 Mockups (PSD)",
+    title: "Gloating 2021 iPhone 12 Mockups (PSD)",
     author: "by Blueskytechco in Mockups",
     price: "30.00",
     category: "icons",

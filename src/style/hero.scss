@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     padding: 10% 0;
     margin: auto;
     text-align: center;
@@ -62,6 +63,11 @@
             font-size: $xl-2;
           }
       }
+}
+
+.heading{
+  text-align: center;
+  padding: 4rem 0;
 }
 
 @media screen and (max-width: 899px) {

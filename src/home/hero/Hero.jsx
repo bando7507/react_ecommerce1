@@ -14,7 +14,6 @@ const Hero = () => {
 
     const onSearch = (key) =>{
         setValue(key)
-        // console.log(key);
     }
     return (
         <>

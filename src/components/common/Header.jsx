@@ -7,6 +7,8 @@ import { BiSearch } from 'react-icons/bi'
 import { RiUser3Line } from 'react-icons/ri'
 import { BsBagCheck } from 'react-icons/bs'
 
+import { connect, useDispatch, useSelector } from 'react-redux';
+
 const Header = () => {
     const [mobile, setMobile] = useState(false)
 
@@ -18,6 +20,9 @@ const Header = () => {
             header.classList.remove("active")
         }
     })
+
+    const getdata = useSelector((state) => state.cart)
+    console.log(getdata.length);
     return (
         <>
             <header>
@@ -59,7 +64,7 @@ const Header = () => {
                         <div className="right_card">
                             <button className='button'>
                                 <BsBagCheck className='shop heIcon' />
-                                MY CART (0)
+                                MY CART ({getdata.length})
                             </button>
                         </div>
                         
@@ -69,5 +74,12 @@ const Header = () => {
         </>
     );
 };
+
+// const mapStateToProps = (state) => {
+//     return {
+//       amount: state.amount,
+//     }
+//   }
+//   connect(mapStateToProps)(Header)
 
 export default Header;

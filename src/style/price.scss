@@ -1,0 +1,101 @@
+@import './var.scss';
+
+.price {
+    background-color: $blue;
+    color: $white;
+
+    p {
+        color: $white;
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        max-width: 80%;
+        margin: auto;
+
+        .box {
+            padding: $xl-4;
+            border-radius: 10px;
+        }
+
+        .box:nth-child(2) {
+            background: #0a2b52;
+            position: relative;
+            overflow: hidden;
+
+            &::after {
+                position: absolute;
+                top: 17px;
+                right: -35px;
+                width: 135px;
+                content: "POPULAR";
+                background: #bd3f99;
+                transform: rotate(45deg);
+                font-size: 15px;
+                padding: 5px;
+                text-align: center;
+            }
+        }
+
+        h1 {
+            font-size: $xl-6;
+            position: relative;
+
+            span {
+                font-size: $lg;
+                position: absolute;
+                top: 10px;
+                left: -10px;
+                //   @include positions(absolute, 10px, none, -10px, none, none, none);
+            }
+
+            label {
+                font-size: $md;
+                color: $text;
+            }
+        }
+
+        p {
+            color: $text;
+        }
+
+        button {
+            padding: 1rem;
+            margin: 50px 0;
+        }
+
+        ul {
+            li {
+                margin-top: 30px;
+
+                i {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1034px) {
+    .price {
+
+        .content {
+            max-width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 995px) {
+    .price {
+
+        .content {
+                grid-template-columns: repeat(1, 1fr);
+            max-width: 100%;
+
+
+        }
+    }
+}

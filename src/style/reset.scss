@@ -32,4 +32,11 @@ button,input {
   border: none;
   outline: none;
   background: none;
+  cursor: pointer;
+}
+
+.button {
+  background: linear-gradient(90deg, #ff4267 40%, #ff4b2e);
+  border-radius: 40px;
+  color: #FFF;
 }

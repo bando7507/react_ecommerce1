@@ -1,0 +1,63 @@
+@import './var.scss';
+
+.blog {
+    .posts {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+
+        .content {
+            position: relative;
+
+            button {
+                margin-bottom: $large;
+            }
+
+            .img {
+                border-radius: 10px;
+                width: 100%;
+                height: 100%;
+
+                img {
+                    border-radius: 10px;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+
+            .text {
+
+                span {
+                    color: $primary;
+                    font-weight: bold;
+                }
+            }
+
+            &::after {
+                background: rgba(#000000, 0.4);
+                border-radius: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 995px) {
+    .blog {
+        .posts {
+
+            grid-template-columns: repeat(2, 1fr);
+
+        }
+    }
+}
+
+@media screen and (max-width: 566px) {
+    .blog {
+        .posts {
+
+            grid-template-columns: repeat(1, 1fr);
+
+        }
+    }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiOutlineClose, AiOutlineHeart } from 'react-icons/ai';
+import {  AiOutlineHeart } from 'react-icons/ai';
 import { FiShoppingBag, FiSearch } from 'react-icons/fi';
 
 const SearchItem = ({ value, products, onSearch}) => {
@@ -14,7 +14,7 @@ const SearchItem = ({ value, products, onSearch}) => {
 
                 return searchkey && title.startsWith(searchkey) && title !== searchkey
             })
-              .slice(0, 10)
+              .slice(0, 3)
               .map((item) =>(
                 <div className="box" key={item.id}>
                   <div className="img">

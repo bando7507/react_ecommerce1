@@ -7,7 +7,7 @@ import { BiSearch } from 'react-icons/bi'
 import { RiUser3Line } from 'react-icons/ri'
 import { BsBagCheck } from 'react-icons/bs'
 
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 
 const Header = () => {
     const [mobile, setMobile] = useState(false)
@@ -21,8 +21,9 @@ const Header = () => {
         }
     })
 
-    const getdata = useSelector((state) => state.cart)
-    console.log(getdata.length);
+    // CONTROLLER
+    const getdata = useSelector((state) => state.cartReducer.carts)
+    console.log(getdata);
     return (
         <>
             <header>
@@ -75,11 +76,11 @@ const Header = () => {
     );
 };
 
-// const mapStateToProps = (state) => {
-//     return {
-//       amount: state.amount,
-//     }
-//   }
-//   connect(mapStateToProps)(Header)
+const mapStateToProps = (state) => {
+    return {
+      amount: state.amount,
+    }
+  }
+  connect(mapStateToProps)(Header)
 
 export default Header;

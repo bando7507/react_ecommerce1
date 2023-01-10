@@ -1,16 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Logo from '../../assets/images/logo.svg'
+import Cart from '../../assets/images/cart.png'
 import { Link } from 'react-router-dom';
 import { navlist } from '../../assets/data/data'
-import { AiOutlineHeart, AiOutlineMenu, AiOutlineClose } from  'react-icons/ai';
+import { AiOutlineHeart, AiOutlineMenu, AiOutlineClose, AiOutlineDelete } from  'react-icons/ai';
 import { BiSearch } from 'react-icons/bi'
 import { RiUser3Line } from 'react-icons/ri'
 import { BsBagCheck } from 'react-icons/bs'
+import { DELETE } from '../../controller/action';
 
-import { connect, useSelector } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 
 const Header = () => {
     const [mobile, setMobile] = useState(false)
+    const [cartList, setCartList] = useState(false)
+
+    const handleClose = () => {
+        setCartList(null)
+      }
+
 
     window.addEventListener('scroll', () =>{
         const header = document.querySelector('header')
@@ -23,7 +31,28 @@ const Header = () => {
 
     // CONTROLLER
     const getdata = useSelector((state) => state.cartReducer.carts)
-    console.log(getdata);
+    const dispatch = useDispatch()
+    // console.log(getdata);
+
+    // // CONTROLLER 2
+    // const getdata = useSelector((state) => state.cart)
+    // const dispatch = useDispatch()
+    // // console.log(getdata);
+
+    const [price, setPrice] = useState([])
+
+    const total = (e, i) =>{
+        let price = 0
+        getdata.map((e) =>{
+            price = parseFloat(e.price) * e.qty + e.price;
+        })
+        setPrice(price)
+    }
+
+    useEffect(()=> {
+        total()
+    }, [total])
+
     return (
         <>
             <header>
@@ -63,10 +92,59 @@ const Header = () => {
                         </div>
 
                         <div className="right_card">
-                            <button className='button'>
+                            <button className='button' onClick={() => { setCartList(!cartList)}}>
                                 <BsBagCheck className='shop heIcon' />
                                 MY CART ({getdata.length})
                             </button>
+
+                            <div className={cartList ? "showCart" : "hideCart"}>
+                                <section className="detail">
+                                    {/* {getdata.length ? (
+                                        <div>d</div>
+                                    ) : (
+                                        <div>empty</div>
+                                    )} */}
+                                    
+                                    {getdata.length> 0 && 
+                                        <div className='flex'>
+                                            <div className='details_title'>
+                                                    <h3>Photo</h3>
+                                                    <p>Product Name</p>
+                                                </div>
+                                                {getdata.map((e, id) => (
+                                                    <div className="details__content"  key={id}>
+                                                        <div className="details__content-img">
+                                                            <Link to={`cart/${e.id}`}  onClick={() => handleClose()}>
+                                                                <img src={e.cover} alt="" />
+                                                            </Link>
+                                                        </div>
+                                                        <div className="details__content_detail">
+                                                            <p>{e.title.slice(0, 12)}...</p>
+                                                            <p>Price: {e.price}</p>
+                                                            <p>Quantity: {e.qty}</p>
+                                                        </div>
+
+                                                        <div className='details__content_detail_icon'>
+                                                            <i>
+                                                                <AiOutlineDelete onClick={() => dispatch(DELETE(e.id))}/>
+                                                            </i>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                                <div>
+                                                    Price: {price}$
+                                                </div>
+                                        </div>
+                                    }
+                                </section>
+                                    {getdata.length === 0 && 
+                                        <div className='empty'>
+                                            <p>Your cart is empty</p>
+                                            <img src={Cart} alt="" />
+                                        </div>
+                                    }
+                                
+                            </div>
                         </div>
                         
                     </div>

@@ -77,6 +77,68 @@ header {
                 gap: 1rem;
             }
 
+            .right_card{
+                .showCart{
+                    background: $white;
+                    position: absolute;
+                    right: 5%;
+                    top: 14%;
+                    // height: 100%;
+                    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+                    .detail{
+                        .flex{
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            flex-direction: column;
+                            .details_title{
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                margin-bottom: 1.5rem;
+                                gap: 5rem;
+                            }
+
+                            .details__content{
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                gap: 4rem;
+
+                                .details__content-img{
+                                    img{
+                                        width: 70px;
+                                        height: 70px;
+                                        border-radius: 50%;
+                                    }
+                                }
+                                .details__content_detail_icon{
+                                    svg{
+                                        cursor: pointer;
+                                        font-size: 1.6rem;
+                                        color: #ff4b2e;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .empty{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 2rem;
+                        padding: .5rem;
+
+                        img {
+                            width: 50px;
+                            height: 50px;
+                          }
+                    }
+                }
+            }
+
             .button {
                 border: none;
                 outline: none;
@@ -93,12 +155,31 @@ header {
 
 }
 
+.hideCart{
+    display: none;
+}
+
 .active{
     position: sticky;
     top: 0;
-    z-index: 99999;
+    z-index: 9999;
     background: $white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    .container{
+        .right{
+            .right_card{
+                .showCart{
+                    background: $white;
+                    position: absolute;
+                    right: 5%;
+                    top: 105%;
+                    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                }
+                
+            }
+        }
+    }
 }
 
 @media (max-width: 1163px) {

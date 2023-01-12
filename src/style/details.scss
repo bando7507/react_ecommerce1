@@ -1,0 +1,60 @@
+.details{
+    
+  
+    .details__content{
+        display: flex;
+        gap: 5rem;
+        padding: 1rem 3rem;
+
+
+        .details__content_img{
+            width: 70%;
+            img{
+                width: 100%;
+            }
+        }
+
+        .details__content_detail{
+            h1{
+                margin-bottom: 2rem;
+            }
+
+            .rating{
+                margin-bottom: 1rem;
+
+                svg{
+                    font-size: 1.5rem;
+                    color: yellow;
+                }
+            }
+
+            h3{
+                font-size: 2rem;
+                span{
+                    font-size: 3rem;
+                }
+            }
+            p{
+                margin-bottom: 1rem;
+            }
+
+            .qty{
+                button{
+                    border: 1px solid #000;
+                    padding: .5rem 1rem;
+                    margin-bottom: 1rem;
+                }
+
+                span{
+                    padding: 0 1rem;
+                }
+            }
+
+            .desc{
+                ul li{
+                    list-style: circle;
+                }
+            }
+        }
+    }
+}
